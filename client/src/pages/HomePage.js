@@ -1,7 +1,15 @@
 import JobList from "../components/JobList";
-import { jobs } from "../lib/fake-data";
+import { getJobs } from "../lib/graphql/queries";
+import { useState, useEffect } from "react";
 
 export default function HomePage() {
+   const [jobs, setJobs] = useState([]);
+   useEffect(() => {
+      getJobs().then(setJobs);
+   }, []);
+
+   // console.log("[HomePage] jobs:", jobs);
+
    return (
       <div>
          <h1 className="title">Job Board</h1>
