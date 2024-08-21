@@ -7,6 +7,10 @@ async function getJobs() {
    return await getJobTable().select();
 }
 
+async function getJobsByCompany(companyId) {
+   return await getJobTable().select().where({ companyId });
+}
+
 async function getJob(objectId) {
    return await getJobTable().where({ id: objectId }).first();
 }
@@ -42,4 +46,4 @@ async function updateJob(jobId, jobTitle, jobDescription) {
    return { ...job, ...updatedFields };
 }
 
-export { getJobs, getJob, createJob, deleteJob, updateJob };
+export { getJobs, getJob, createJob, deleteJob, updateJob, getJobsByCompany };
