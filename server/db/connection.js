@@ -7,3 +7,5 @@ export const connection = knex({
    },
    useNullAsDefault: true,
 });
+
+console.log(connection);

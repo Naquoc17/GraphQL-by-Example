@@ -9,7 +9,7 @@ export default function LoginPage({ onLogin }) {
    const handleSubmit = async (event) => {
       event.preventDefault();
       setError(false);
-      const user = await LoginPage(email, password);
+      const user = await login(email, password);
       if (user) {
          onLogin(user);
       } else {
